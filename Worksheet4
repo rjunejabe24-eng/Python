@@ -1,0 +1,100 @@
+import numpy as np
+import random
+#Q1
+#1.1
+# arr = np.arange(5,26)
+# print(arr)
+# print(type(arr))
+#1.2
+# arr = np.random.randint(10,51,size=(3,4))
+# print(arr)
+
+#Q2
+# print(arr.shape)
+# print(arr.size)
+# print(arr.dtype)
+
+#Q3
+#3.1
+# arr1 = np.arange(2,11,2)
+# arr2 = np.arange(1,10,2)
+# print(arr1)
+# print(arr2)
+# #3.2
+# print(arr1-arr2)
+# print(arr1+arr2)
+# print(arr1*arr2)
+# print(arr1/arr2)
+
+#Q4
+#4.1
+# arr = np.arange(1,10).reshape(3,3)
+# print(arr)
+# #4.2
+# print(5*arr)
+
+#Q5
+#5.1
+# arr = np.arange(10,26).reshape(4,4)
+# print(arr)
+#5.2
+# print("Second row : ",arr[1])
+# print("Last column : ",arr[:,-1])
+#5.3
+# arr[0] = 0
+# print("After editing : ")
+# print(arr)
+
+#Q6
+#6.1
+# arr = np.random.randint(20,41,size=10)
+# print(arr)
+# #6.2
+# n = arr[arr>30]
+# print(n)
+
+#7
+#7.1
+# arr = np.arange(11,23)
+# print(arr)
+# #7.2
+# arr.resize(3,4)
+# print(arr)
+
+#Q8
+#8.1
+# mA = np.arange(1,5).reshape(2,2)
+# mB = np.arange(5,9).reshape(2,2)
+# print(mA)
+# print(mB)
+# #8.2
+# print("Matrix multiplication : ")
+# print(np.matmul(mA,mB))
+# print("Transpose of A : ")
+# print(np.matrix_transpose(mA))
+
+#Q9
+#9.1
+# arr = np.random.randint(10,61,size=15)
+# print(arr)
+# #9.2
+# print("Mean : ")
+# print(np.mean(arr))
+# print("Median : ")
+# print(np.median(arr))
+# print("Standard deviation : ")
+# print(np.std(arr))
+
+#Q10
+#10.1
+# arr = [[2,1,3],[0,5,6],[7,8,9]]
+# print(arr)
+# #10.2
+# print("Deterinant : ")
+# print(np.linalg.det(arr))
+# print("Inverse : ")
+# print(np.linalg.inv(arr))
+# print("Eigen values and Eigen vector : ")
+# eigval,eigvec = np.linalg.eig(arr)
+# print(eigval)
+# print(eigvec)

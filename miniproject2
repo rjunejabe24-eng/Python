@@ -1,0 +1,34 @@
+import numpy as np
+
+# --- Load positions (skip header) ---
+coords = np.genfromtxt("robot_path.csv", delimiter=",", skip_header=1)
+
+x = coords[:,0]
+y = coords[:,1]
+
+# --- 1. Total distance traveled ---
+deltas = np.diff(coords, axis=0)
+segment_lengths = np.linalg.norm(deltas, axis=1)
+total_distance = np.sum(segment_lengths)
+
+# --- 2. Farthest point from origin ---
+distances = np.linalg.norm(coords, axis=1)
+idx_far = np.argmax(distances)
+farthest_point = coords[idx_far]
+farthest_dist  = distances[idx_far]
+
+# --- 3. Detect revisited positions ---
+# Round to avoid floating-point mismatch
+rounded = np.round(coords, 6)
+# Turn into list of tuples for easy comparison
+tuples = [tuple(row) for row in rounded]
+revisited = set([p for p in tuples if tuples.count(p) > 1])
+
+# --- Save results ---
+np.savetxt("rover_total_distance.csv", np.array([[total_distance]]), delimiter=",", fmt="%.6f")
+np.savetxt("rover_farthest_point.csv", np.array([[farthest_point[0], farthest_point[1], farthest_dist]]),
+           delimiter=",", fmt="%.6f", header="x,y,distance", comments="")
+
+with open("rover_revisited.csv", "w") as f:
+    for p in revisited:
+        f.write(f"{p}\n")
